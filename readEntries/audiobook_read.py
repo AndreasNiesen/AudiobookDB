@@ -268,6 +268,20 @@ class AuthorFrame(tk.Frame):
 				print(f"\"{audio.name}\"-Autoren:")
 				for auth in audio:
 					print(f"  {auth.full_name}")
+				print(f"Releases: {audio.release}")
+				print(f"Synopsis: {audio.synopsis}")
+				print("Ist ein Roman." if audio.roman else "Ist eine Kurzgeschichte.")
+				print("Ist gekürzt." if audio.shortened else "Ist ungekürzt.")
+				print(f"Gehört zum Boxset: {audio.boxname}" if audio.boxset else "Nicht teil eines Boxsets.")
+				print(f"mp3CD: {audio.mp3CD}")
+				print(f"nurPC: {audio.PConly}")
+				print(f"Bestehend aus {audio.amountCDs} CDs.")
+				print(f"Genre: {audio.genre}")
+				print(f"Mit einer Länge von {audio.runtime} Stunden.")
+				print(f"Kommentare: {audio.comments}")
+				print("Alternative Namen:")
+				for nameInfo in audio.altNames:
+					print(f"  Im Jahre {nameInfo[1]} geändert zu \"{nameInfo[0]}\".\n  Kommentar: {nameInfo[2]}")
 
 	def displayInfos(self, auth):
 		self.nameInfoLabel.config(text=auth.full_name)
